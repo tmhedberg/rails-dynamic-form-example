@@ -15,6 +15,6 @@ class ShirtStylesController < ApplicationController
     if styles.length > 0
       flash[:notice] = "Created #{pluralize styles.length, 'style'}"
     end
-    redirect_to shirt_styles_path
+    redirect_to root_path
   end
 end
