@@ -8,7 +8,9 @@ class ShirtStylesController < ApplicationController
   def new; end
 
   def create
-    styles = params[:shirt_style].values.reject { |style| style.values.all? &:blank? }
+    styles = params[:shirt_style].values.reject do |style|
+      style.values.all? &:blank?
+    end
     styles.each { |style| ShirtStyle.create! style }
     if styles.length > 0
       flash[:notice] = "Created #{pluralize styles.length, 'style'}"
