@@ -4,7 +4,7 @@
   <thead><th>ID</th><th>Color</th><th>Size</th></thead>
   <tbody>
     <% @styles.each do |style| %>
-      <tr><th><%= style._id %></th><td><%= style.color %></td><td><%= style.size %></td></tr>
+      <tr><th><%= style.id %></th><td><%= style.color %></td><td><%= style.size %></td></tr>
     <% end %>
   </tbody>
 </table>
