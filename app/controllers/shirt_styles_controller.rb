@@ -8,12 +8,11 @@ class ShirtStylesController < ApplicationController
   def new; end
 
   def create
-    params[:shirt_style].each do |_, style|
-      ShirtStyle.create! style if !(style[:color].blank? && style[:size].blank?)
+    styles = params[:shirt_style].values.reject { |style| style.values.all? &:blank? }
+    styles.each { |style| ShirtStyle.create! style }
+    if styles.length > 0
+      flash[:notice] = "Created #{pluralize styles.length, 'style'}"
     end
-    redirect_to(
-      shirt_styles_path,
-      notice: "Created #{pluralize params[:shirt_style].length, 'style'}"
-    )
+    redirect_to shirt_styles_path
   end
 end
