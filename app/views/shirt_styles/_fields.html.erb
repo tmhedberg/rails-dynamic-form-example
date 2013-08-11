@@ -1,0 +1,9 @@
+<fieldset>
+  <%= fields_for :shirt_style do |f| %>
+    <%= f.label :color, index: index %>
+    <%= f.text_field :color, index: index %>
+
+    <%= f.label :size, index: index %>
+    <%= f.text_field :size, index: index %>
+  <% end %>
+</fieldset>

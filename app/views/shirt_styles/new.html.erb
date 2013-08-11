@@ -1,0 +1,13 @@
+<h1>New Shirt Styles</h1>
+
+<%= form_tag shirt_styles_path do %>
+  <%= render 'fields', index: 0 %>
+
+  <%=
+    button_tag 'Add more',
+               type: 'button',
+               id: 'add-more-shirt-style-fields',
+               data: { fields: render('fields', index: '__INDEX__').gsub('\n', '') }
+  %>
+  <%= submit_tag 'Submit' %>
+<% end %>
